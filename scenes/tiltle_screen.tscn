@@ -1,0 +1,133 @@
+[gd_scene load_steps=11 format=3 uid="uid://df3lf8pj7ov2w"]
+
+[ext_resource type="Script" path="res://code/Tiltle screen.gd" id="1_agxdy"]
+[ext_resource type="Texture2D" uid="uid://unugqhugf0b" path="res://PhysicsCarGameAssets/Images/Other/Clouds.png" id="2_5sbg6"]
+[ext_resource type="Texture2D" uid="uid://dyijwbp5divrh" path="res://PhysicsCarGameAssets/Images/Other/winner back ground try 2 (1) (1).png" id="2_upxwf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46j0m"]
+bg_color = Color(0.996078, 0.878431, 0.0705882, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.905882, 0.12549, 0.14902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46foy"]
+bg_color = Color(0.996078, 0.866667, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.905882, 0.12549, 0.14902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kysmv"]
+bg_color = Color(0.905882, 0.12549, 0.14902, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.913725, 0.188235, 0.207843, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="SystemFont" id="SystemFont_0fp7c"]
+font_weight = 999
+font_stretch = 125
+
+[sub_resource type="Theme" id="Theme_2abqa"]
+default_font = SubResource("SystemFont_0fp7c")
+Button/styles/hover = SubResource("StyleBoxFlat_46j0m")
+Button/styles/normal = SubResource("StyleBoxFlat_46foy")
+Button/styles/pressed = SubResource("StyleBoxFlat_kysmv")
+
+[sub_resource type="Animation" id="Animation_v4hxv"]
+resource_name = "load_next_scene"
+length = 60.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(52.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"load_next_scene"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_im3kf"]
+_data = {
+"load_next_scene": SubResource("Animation_v4hxv")
+}
+
+[node name="Tiltle screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_agxdy")
+metadata/_edit_horizontal_guides_ = [1080.0, 1080.0]
+metadata/_edit_vertical_guides_ = [1920.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -66.0
+offset_top = -24.0
+offset_right = 1939.0
+offset_bottom = 1104.0
+texture = ExtResource("2_upxwf")
+
+[node name="Clouds" type="Sprite2D" parent="."]
+position = Vector2(896, 352)
+scale = Vector2(0.644, 0.644)
+texture = ExtResource("2_5sbg6")
+
+[node name="Start button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 352.0
+offset_right = 1080.0
+offset_bottom = 455.0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_2abqa")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.905882, 0.12549, 0.14902, 1)
+theme_override_font_sizes/font_size = 60
+text = "START"
+
+[node name="Quit button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 464.0
+offset_right = 1080.0
+offset_bottom = 567.0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_2abqa")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.913725, 0.188235, 0.207843, 1)
+theme_override_font_sizes/font_size = 60
+text = "QUIT"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_im3kf")
+}
+speed_scale = 4.0
+
+[connection signal="pressed" from="Start button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Quit button" to="." method="_on_quit_button_pressed"]

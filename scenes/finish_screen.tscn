@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://ck520xrecfq3b"]
+
+[ext_resource type="Script" path="res://code/finish_screen.gd" id="1_hwb3u"]
+[ext_resource type="Texture2D" uid="uid://dyijwbp5divrh" path="res://PhysicsCarGameAssets/Images/Other/winner back ground try 2 (1) (1).png" id="2_kyhl6"]
+[ext_resource type="PackedScene" uid="uid://bhwjp6n3yea34" path="res://scenes/Blue_print.tscn" id="3_8tgj6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qotge"]
+bg_color = Color(0.996078, 0.878431, 0.0705882, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.905882, 0.12549, 0.14902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogg52"]
+bg_color = Color(0.996078, 0.866667, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.905882, 0.12549, 0.14902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kddr7"]
+bg_color = Color(0.905882, 0.12549, 0.14902, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.913725, 0.188235, 0.207843, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="SystemFont" id="SystemFont_ikg51"]
+font_weight = 999
+font_stretch = 125
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_7ec74"]
+default_font = SubResource("SystemFont_ikg51")
+Button/styles/hover = SubResource("StyleBoxFlat_qotge")
+Button/styles/normal = SubResource("StyleBoxFlat_ogg52")
+Button/styles/pressed = SubResource("StyleBoxFlat_kddr7")
+
+[node name="Finish screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hwb3u")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -53.0
+offset_top = -16.0
+offset_right = 1952.0
+offset_bottom = 1112.0
+texture = ExtResource("2_kyhl6")
+
+[node name="restart button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1584.0
+offset_top = 928.0
+offset_right = 1856.0
+offset_bottom = 1031.0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_7ec74")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.913725, 0.188235, 0.207843, 1)
+theme_override_font_sizes/font_size = 60
+text = "RESTART"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 24.0
+offset_right = 1546.0
+offset_bottom = 226.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 147
+text = "GOAL ACHIEVED"
+
+[node name="Blue_print" parent="." instance=ExtResource("3_8tgj6")]
+position = Vector2(56, 912)
+rotation = -0.261799
+
+[connection signal="pressed" from="restart button" to="." method="_on_restart_button_pressed"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1fjjexms3im5"]
+
+[ext_resource type="Texture2D" uid="uid://gy46nq6hpv0k" path="res://PhysicsCarGameAssets/Images/Pickups/bird small.png" id="1_8evv6"]
+[ext_resource type="FontFile" uid="uid://bvbmll6babb4y" path="res://fredoka-one/FredokaOne-Regular.otf" id="2_deren"]
+
+[node name="Bird_UI" type="CanvasLayer"]
+
+[node name="Bird" type="TextureRect" parent="."]
+offset_left = 52.0
+offset_top = 368.0
+offset_right = 163.0
+offset_bottom = 479.0
+texture = ExtResource("1_8evv6")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Bird"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 30.0
+offset_right = 148.0
+offset_bottom = 104.0
+theme_override_fonts/font = ExtResource("2_deren")
+theme_override_font_sizes/font_size = 60
+text = "0"

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bis0pn48ea1hq"]
+
+[ext_resource type="Texture2D" uid="uid://clmjdas0ug07v" path="res://PhysicsCarGameAssets/Images/Other/umbrella.png" id="1_t1uji"]
+
+[node name="Unbrella" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(96, 107.455)
+scale = Vector2(1.54545, 1.54545)
+texture = ExtResource("1_t1uji")

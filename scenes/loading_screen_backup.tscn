@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2ufrrm2pul4b"]
+
+[ext_resource type="FontFile" uid="uid://ctql0cc7hkuty" path="res://fredoka-one/FredokaOne-Regular.ttf" id="1_bk7ad"]
+[ext_resource type="PackedScene" uid="uid://dyqss2fv0gfgv" path="res://scenes/loading.tscn" id="2_fj0ut"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnore"]
+bg_color = Color(0.306923, 0.306923, 0.306923, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.913725, 0.188235, 0.207843, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gft1e"]
+bg_color = Color(1, 0.862745, 0.0156863, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="loading_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.494118, 0.819608, 1, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 646.0
+offset_right = 1656.0
+offset_bottom = 747.0
+theme_override_colors/font_color = Color(0.913725, 0.188235, 0.207843, 1)
+theme_override_fonts/font = ExtResource("1_bk7ad")
+theme_override_font_sizes/font_size = 77
+theme_override_styles/background = SubResource("StyleBoxFlat_cnore")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gft1e")
+value = 50.0
+
+[node name="Loading" parent="." instance=ExtResource("2_fj0ut")]
+position = Vector2(440, 840)

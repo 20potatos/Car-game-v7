@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=3 uid="uid://bd67xd1b7mi5u"]
+
+[ext_resource type="Script" path="res://code/keyboard_warrier.gd" id="1_j4tk0"]
+[ext_resource type="Texture2D" uid="uid://dyijwbp5divrh" path="res://PhysicsCarGameAssets/Images/Other/winner back ground try 2 (1) (1).png" id="2_gqxo3"]
+[ext_resource type="Texture2D" uid="uid://dvavein0smgt3" path="res://PhysicsCarGameAssets/Images/Other/keyboard warrier (1).png" id="3_x57he"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77nan"]
+bg_color = Color(0.996078, 0.878431, 0.0705882, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.905882, 0.12549, 0.14902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2b8v"]
+bg_color = Color(0.996078, 0.866667, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.905882, 0.12549, 0.14902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0x0n"]
+bg_color = Color(0.905882, 0.12549, 0.14902, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.913725, 0.188235, 0.207843, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="SystemFont" id="SystemFont_3b7ko"]
+font_weight = 999
+font_stretch = 125
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_tw86n"]
+default_font = SubResource("SystemFont_3b7ko")
+Button/styles/hover = SubResource("StyleBoxFlat_77nan")
+Button/styles/normal = SubResource("StyleBoxFlat_b2b8v")
+Button/styles/pressed = SubResource("StyleBoxFlat_c0x0n")
+
+[node name="Keyboard_warrior" type="CanvasLayer"]
+script = ExtResource("1_j4tk0")
+metadata/_edit_vertical_guides_ = [960.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_gqxo3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1928.0
+offset_bottom = 1096.0
+
+[node name="restart button" type="Button" parent="."]
+offset_left = 1608.0
+offset_top = 944.0
+offset_right = 1880.0
+offset_bottom = 1047.0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_tw86n")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.913725, 0.188235, 0.207843, 1)
+theme_override_font_sizes/font_size = 60
+text = "RESTART"
+
+[node name="Granny" type="TextureRect" parent="."]
+offset_left = 376.0
+offset_top = 208.0
+offset_right = 1599.0
+offset_bottom = 1072.0
+texture = ExtResource("3_x57he")
+
+[node name="Label" type="Label" parent="."]
+offset_top = 248.0
+offset_right = 1920.0
+offset_bottom = 1344.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 97
+text = "3 Dotterels Squashed
+You have triggered a 
+keyboard warrior!
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 504.0
+offset_right = 1405.0
+offset_bottom = 205.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 150
+text = "GAME OVER!"
+
+[connection signal="pressed" from="restart button" to="." method="_on_restart_button_pressed"]

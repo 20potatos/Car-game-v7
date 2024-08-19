@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfs83yea6d0jn"]
+
+[ext_resource type="FontFile" uid="uid://bvbmll6babb4y" path="res://fredoka-one/FredokaOne-Regular.otf" id="1_toiid"]
+
+[node name="Warrier" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 125.0
+offset_right = 1369.0
+offset_bottom = 294.0
+theme_override_fonts/font = ExtResource("1_toiid")
+theme_override_font_sizes/font_size = 60
+text = "womp womp, you trigered a keyboard warrier!"
+autowrap_mode = 2

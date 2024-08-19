@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhwjp6n3yea34"]
+
+[ext_resource type="Script" path="res://code/Bird.gd" id="1_x4px5"]
+[ext_resource type="Texture2D" uid="uid://doi7hqml6saku" path="res://PhysicsCarGameAssets/Images/Other/surf club upgrade (1).png" id="2_ho5wv"]
+[ext_resource type="AudioStream" uid="uid://1ipb2eu8bdul" path="res://PhysicsCarGameAssets/Audio/Thud.wav" id="3_giusm"]
+
+[sub_resource type="Animation" id="Animation_nhhs0"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-1.3, 0)
+}
+
+[sub_resource type="Animation" id="Animation_jmvkl"]
+resource_name = "pickup"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, -41.5, -60, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Squashed_bird")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.7863,
+"stream": ExtResource("3_giusm")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xr2b0"]
+_data = {
+"RESET": SubResource("Animation_nhhs0"),
+"pickup": SubResource("Animation_jmvkl")
+}
+
+[node name="Blue_print" type="Area2D"]
+script = ExtResource("1_x4px5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1000.87, 0)
+scale = Vector2(0.310778, 0.338303)
+texture = ExtResource("2_ho5wv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xr2b0")
+}
+
+[node name="Squashed_bird" type="AudioStreamPlayer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
