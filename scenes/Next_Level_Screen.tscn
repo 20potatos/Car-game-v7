@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck0j5vxei0tnl"]
+
+[ext_resource type="PackedScene" uid="uid://bqhjcypol6ige" path="res://scenes/Next_Level.tscn" id="1_qslna"]
+[ext_resource type="Script" path="res://code/Next_Level_Screen.gd" id="1_utvsd"]
+[ext_resource type="PackedScene" uid="uid://75jdvfadx0qh" path="res://scenes/Next_level_particles.tscn" id="3_okwfo"]
+
+[node name="Next_Level_Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_utvsd")
+
+[node name="Loading" parent="." instance=ExtResource("1_qslna")]
+position = Vector2(-4, -8)
+
+[node name="Node2D" parent="." instance=ExtResource("3_okwfo")]
+position = Vector2(920, 488)
+scale = Vector2(0.2, 0.2)

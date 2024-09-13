@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci6i6g5xval1k"]
+
+[sub_resource type="GDScript" id="GDScript_0hbpi"]
+script/source = "extends VBoxContainer
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$VBoxContainer/MasterSlider.value = db_to_linear(AudioServer.get_bus_volume_db(0))
+	$VBoxContainer/MusicSlider.value = db_to_linear(AudioServer.get_bus_volume_db(1))
+	$VBoxContainer/SFXSlider.value = db_to_linear(AudioServer.get_bus_volume_db(2))
+	
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _on_master_slider_mouse_exited():
+	release_focus()
+
+func _on_music_slider_mouse_exited():
+	release_focus()
+
+func _on_sfx_slider_mouse_exited():
+	release_focus()
+	
+
+
+"
+
+[node name="VBoxContainer" type="VBoxContainer"]
+offset_left = 624.0
+offset_top = 432.0
+offset_right = 1280.0
+offset_bottom = 584.0
+script = SubResource("GDScript_0hbpi")
+
+[node name="MasterLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="."]
+layout_mode = 2
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="MusicLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="."]
+layout_mode = 2
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="SFXLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 6
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="."]
+layout_mode = 2
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="confirm" type="Button" parent="."]
+layout_mode = 2
+text = "Apply"
+
+[connection signal="mouse_exited" from="MasterSlider" to="." method="_on_master_slider_mouse_exited"]
+[connection signal="mouse_exited" from="MusicSlider" to="." method="_on_music_slider_mouse_exited"]
+[connection signal="mouse_exited" from="SFXSlider" to="." method="_on_sfx_slider_mouse_exited"]
+[connection signal="pressed" from="confirm" to="." method="_on_confirm_pressed"]

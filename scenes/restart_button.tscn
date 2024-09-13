@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://bra4s0nm1fc0a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugiu4"]
+bg_color = Color(0.996078, 0.878431, 0.0705882, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.905882, 0.12549, 0.14902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g532y"]
+bg_color = Color(0.996078, 0.866667, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.905882, 0.12549, 0.14902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ustay"]
+bg_color = Color(0.905882, 0.12549, 0.14902, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.913725, 0.188235, 0.207843, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="SystemFont" id="SystemFont_i1lm8"]
+font_weight = 999
+font_stretch = 125
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_x2w4s"]
+default_font = SubResource("SystemFont_i1lm8")
+Button/styles/hover = SubResource("StyleBoxFlat_ugiu4")
+Button/styles/normal = SubResource("StyleBoxFlat_g532y")
+Button/styles/pressed = SubResource("StyleBoxFlat_ustay")
+
+[node name="restart button" type="Button"]
+offset_left = 854.0
+offset_top = 858.0
+offset_right = 1126.0
+offset_bottom = 961.0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_x2w4s")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.913725, 0.188235, 0.207843, 1)
+theme_override_font_sizes/font_size = 60
+text = "RESTART"

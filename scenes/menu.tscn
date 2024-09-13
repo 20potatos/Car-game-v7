@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=3 uid="uid://bh65wcf725wwf"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_mqjv3"]
+[ext_resource type="PackedScene" uid="uid://bra4s0nm1fc0a" path="res://scenes/restart_button.tscn" id="2_hueom"]
+[ext_resource type="Texture2D" uid="uid://dyijwbp5divrh" path="res://PhysicsCarGameAssets/Images/Other/winner back ground try 2 (1) (1).png" id="2_sd7ca"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46j0m"]
+bg_color = Color(0.996078, 0.878431, 0.0705882, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.905882, 0.12549, 0.14902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46foy"]
+bg_color = Color(0.996078, 0.866667, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.905882, 0.12549, 0.14902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kysmv"]
+bg_color = Color(0.905882, 0.12549, 0.14902, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.913725, 0.188235, 0.207843, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="SystemFont" id="SystemFont_0fp7c"]
+font_weight = 999
+font_stretch = 125
+
+[sub_resource type="Theme" id="Theme_jrlhk"]
+default_font = SubResource("SystemFont_0fp7c")
+Button/styles/hover = SubResource("StyleBoxFlat_46j0m")
+Button/styles/normal = SubResource("StyleBoxFlat_46foy")
+Button/styles/pressed = SubResource("StyleBoxFlat_kysmv")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mqjv3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 544)
+texture = ExtResource("2_sd7ca")
+
+[node name="Quit button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -51.5
+offset_right = 136.0
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_jrlhk")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.913725, 0.188235, 0.207843, 1)
+theme_override_font_sizes/font_size = 60
+text = "QUIT"
+
+[node name="restart button" parent="." instance=ExtResource("2_hueom")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.0
+offset_top = 364.0
+offset_right = 136.0
+offset_bottom = 467.0
+grow_horizontal = 2
+
+[node name="SoundOptions" parent="." instance=ExtResource("2_hueom")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.0
+offset_top = 612.0
+offset_right = 136.0
+offset_bottom = 715.0
+grow_horizontal = 2
+text = "SOUND"
+
+[connection signal="pressed" from="Quit button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="restart button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="SoundOptions" to="." method="_on_sound_options_pressed"]

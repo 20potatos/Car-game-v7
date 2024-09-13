@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://unugqhugf0b" path="res://PhysicsCarGameAssets/Images/Other/Clouds.png" id="2_5sbg6"]
 [ext_resource type="Texture2D" uid="uid://dyijwbp5divrh" path="res://PhysicsCarGameAssets/Images/Other/winner back ground try 2 (1) (1).png" id="2_upxwf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46j0m"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpkbj"]
 bg_color = Color(0.996078, 0.878431, 0.0705882, 1)
 border_width_left = 10
 border_width_top = 10
@@ -16,7 +16,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46foy"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7rwg"]
 bg_color = Color(0.996078, 0.866667, 0, 1)
 border_width_left = 10
 border_width_top = 10
@@ -28,7 +28,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kysmv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4w8e"]
 bg_color = Color(0.905882, 0.12549, 0.14902, 1)
 border_width_left = 10
 border_width_top = 10
@@ -40,15 +40,15 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="SystemFont" id="SystemFont_0fp7c"]
+[sub_resource type="SystemFont" id="SystemFont_ugut8"]
 font_weight = 999
 font_stretch = 125
 
 [sub_resource type="Theme" id="Theme_2abqa"]
-default_font = SubResource("SystemFont_0fp7c")
-Button/styles/hover = SubResource("StyleBoxFlat_46j0m")
-Button/styles/normal = SubResource("StyleBoxFlat_46foy")
-Button/styles/pressed = SubResource("StyleBoxFlat_kysmv")
+default_font = SubResource("SystemFont_ugut8")
+Button/styles/hover = SubResource("StyleBoxFlat_lpkbj")
+Button/styles/normal = SubResource("StyleBoxFlat_x7rwg")
+Button/styles/pressed = SubResource("StyleBoxFlat_b4w8e")
 
 [sub_resource type="Animation" id="Animation_v4hxv"]
 resource_name = "load_next_scene"
@@ -93,6 +93,7 @@ offset_bottom = 1104.0
 texture = ExtResource("2_upxwf")
 
 [node name="Clouds" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(896, 352)
 scale = Vector2(0.644, 0.644)
 texture = ExtResource("2_5sbg6")

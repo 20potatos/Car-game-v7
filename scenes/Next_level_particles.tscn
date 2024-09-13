@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://75jdvfadx0qh"]
+
+[ext_resource type="Texture2D" uid="uid://gy3gg3t6u6jr" path="res://PhysicsCarGameAssets/Images/Other/pngtree-shiny-yellow-star-icon-clipart-png-image_6613580.png" id="1_f6i8t"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xmvf8"]
+particle_flag_disable_z = true
+angular_velocity_min = -105.37
+angular_velocity_max = -105.37
+radial_velocity_min = 260.16
+radial_velocity_max = 878.05
+gravity = Vector3(0, 98, 0)
+scale_min = 0.1
+scale_max = 0.5
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 28
+process_material = SubResource("ParticleProcessMaterial_xmvf8")
+texture = ExtResource("1_f6i8t")
+lifetime = 3.0
+speed_scale = 1.5
+explosiveness = 1.0

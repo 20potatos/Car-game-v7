@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://4hii3c4sihms"]
+
+[ext_resource type="AudioStream" uid="uid://c2wimff37s5e1" path="res://PhysicsCarGameAssets/Audio/Out of the Capsule.ogg" id="1_bd0sb"]
+
+[node name="Background_music" type="AudioStreamPlayer"]
+stream = ExtResource("1_bd0sb")
+volume_db = -20.248
+autoplay = true

@@ -17,7 +17,7 @@ func add_coins(amount):
 	$UI/coin/Label.text = str(coins_collected)
 	if coins_collected == 100:
 		await get_tree().create_timer(0.5).timeout
-		get_tree().change_scene_to_file("res://scenes/Next_Level_Screen.tscn")
+		get_tree().change_scene_to_file("res://scenes/finish_screen.tscn")
 		
 		#get_tree().change_scene_to_file("res://scenes/finish_screen.tscn")
 	

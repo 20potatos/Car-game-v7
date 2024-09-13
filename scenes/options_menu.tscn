@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcqqp8nnvm27x"]
+
+[ext_resource type="Script" path="res://code/OptionsMenu.gd" id="1_opobc"]
+[ext_resource type="Script" path="res://code/AudioOptions.gd" id="2_vi4q5"]
+[ext_resource type="PackedScene" uid="uid://ci6i6g5xval1k" path="res://scenes/Audio_try_3.tscn" id="3_kmri5"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+script = ExtResource("1_opobc")
+
+[node name="AudioOptions" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(952, 528)
+script = ExtResource("2_vi4q5")
+
+[node name="VBoxContainer" parent="AudioOptions" instance=ExtResource("3_kmri5")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 656.0
+offset_bottom = 152.0
+
+[node name="Confirm" type="Button" parent="AudioOptions"]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 632.0
+offset_right = 1080.0
+offset_bottom = 664.0
+text = "Apply"
+
+[connection signal="pressed" from="AudioOptions/Confirm" to="." method="_on_confirm_pressed"]
